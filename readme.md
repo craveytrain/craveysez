@@ -4,4 +4,4 @@ My recomendations.
 
 # To-Do
 
-- get Docker with node and whatnot running
+- hook up node and redis to store actual data

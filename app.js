@@ -22,7 +22,7 @@ var serverOptions = {
 	}
 };
 
-var server = new Hapi.Server(3000, serverOptions);
+var server = new Hapi.Server(80, serverOptions);
 
 server.route({
 	method: 'GET',
