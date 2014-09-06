@@ -1,0 +1,12 @@
+{
+	"js": {
+		"jslint_happy": true,
+		"indent_with_tabs": true,
+		"space_in_paren": true,
+		"space_before_conditional": true
+	},
+	"jslint_happy": true,
+	"indent_with_tabs": true,
+	"space_in_paren": true,
+	"space_before_conditional": true
+}

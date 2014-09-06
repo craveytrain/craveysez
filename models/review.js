@@ -1,4 +1,4 @@
-var members = ['id', 'title', 'eatery', 'timestamp', 'content'];
+var members = [ 'id', 'title', 'eatery', 'timestamp', 'content' ];
 
 // function get(id) {
 // 	var result = cache[id];
