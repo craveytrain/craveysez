@@ -16,7 +16,7 @@ function initialize( modelName ) {
 			// populate with data from the initialization
 			modelData.members.forEach( function ( member ) {
 				// throw if all the data isn't there
-				if ( !initialData[ member ] ) throw 'Missing initial ' + member + ' data';
+				if ( !initialData[ member ] ) throw new Error( 'Missing initial ' + member + ' data' );
 
 				model[ member ] = initialData[ member ];
 			} );
