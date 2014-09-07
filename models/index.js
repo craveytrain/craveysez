@@ -28,6 +28,10 @@ function initialize( modelName ) {
 
 		// get by id
 		get: function ( id ) {
+			var result = cache[ id ];
+
+			if ( !result ) throw new Error( modelName + ' not found' );
+
 			return cache[ id ];
 		}
 	};

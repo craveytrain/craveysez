@@ -41,8 +41,17 @@ Object.keys( models ).forEach( function ( modelName ) {
 				models[ modelName ].create( stubModels[ modelName ] );
 				assert.deepEqual( models[ modelName ].get( stubModels[ modelName ].id ), stubModels[ modelName ] );
 			} );
+		} );
 
+		describe( 'get()', function () {
+			it( 'should fail if coupon has not been created', function () {
+				assert.throws(
+					function () {
+						models[ modelName ].get( 'test' );
+					},
+					Error
+				);
+			} );
 		} );
 	} );
-
 } );
