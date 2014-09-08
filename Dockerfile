@@ -21,4 +21,4 @@ EXPOSE 80
 WORKDIR /opt/craveysez
 
 # Run Redis
-CMD redis-server /etc/redis/redis.conf && nodejs app.js
+CMD redis-server /etc/redis/redis.conf && nodejs server.js
