@@ -22,7 +22,7 @@ docker build -t craveysez/web .
 You want to specify a port to expose this to on the host machine. In this case, boot2docker has exposed port 8080 to the host machine.
 
 ```sh
-docker run -it -p 8080:80 craveysez/web
+docker run -it -p 8080:80 --name craveysez_web --link db:db craveysez/web
 ```
 
 
