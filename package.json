@@ -1,28 +1,29 @@
 {
-	"name": "craveysez",
-	"version": "0.0.0",
-	"description": "Food recommendations",
-	"repository": "git@github.com:craveytrain/craveysez.git",
-	"scripts": {
-		"lint": "./node_modules/.bin/jshint *.js --reporter=./node_modules/jshint-stylish/stylish.js",
-		"checkStyle": "./node_modules/.bin/jscs .",
-		"pretest": "npm run lint && npm run checkStyle",
-		"test": "./node_modules/.bin/istanbul cover ./node_modules/.bin/_mocha -- --recursive -R spec",
-		"posttest": "./node_modules/.bin/istanbul check-coverage && rm -rf coverage"
-	},
-	"author": "Mike Cravey",
-	"license": "ISC",
-	"dependencies": {
-		"good": "^2.2.1",
-		"hapi": "^6.5.1",
-		"jade": "^1.5.0"
-	},
-	"devDependencies": {
-		"istanbul": "^0.3.2",
-		"jscs": "^1.6.1",
-		"jshint": "^2.5.5",
-		"jshint-stylish": "^0.4.0",
-		"mocha": "^1.21.4",
-		"should": "^4.0.4"
-	}
+  "name": "craveysez",
+  "version": "0.0.0",
+  "description": "Food recommendations",
+  "repository": "git@github.com:craveytrain/craveysez.git",
+  "scripts": {
+    "lint": "./node_modules/.bin/jshint *.js --reporter=./node_modules/jshint-stylish/stylish.js",
+    "checkStyle": "./node_modules/.bin/jscs .",
+    "pretest": "npm run lint && npm run checkStyle",
+    "test": "./node_modules/.bin/istanbul cover ./node_modules/.bin/_mocha -- --recursive -R spec",
+    "posttest": "./node_modules/.bin/istanbul check-coverage && rm -rf coverage"
+  },
+  "author": "Mike Cravey",
+  "license": "ISC",
+  "dependencies": {
+    "good": "^2.2.1",
+    "hapi": "^6.5.1",
+    "jade": "^1.5.0",
+    "redis": "^0.12.1"
+  },
+  "devDependencies": {
+    "istanbul": "^0.3.2",
+    "jscs": "^1.6.1",
+    "jshint": "^2.5.5",
+    "jshint-stylish": "^0.4.0",
+    "mocha": "^1.21.4",
+    "should": "^4.0.4"
+  }
 }
