@@ -9,7 +9,7 @@ Assumes you have docker (and boot2docker if using an OS that doesn't support con
 ## Run redis docker container
 
 ```sh
-docker run --name craveysez_redis -d redis
+docker run --name craveysez_redis -d redis:2.8.13
 ```
 
 ## Install node docker image
