@@ -2,6 +2,21 @@ var fs = require( 'fs' );
 var path = require( 'path' );
 
 var cache = {};
+// Get {{member}} syntax
+var re_submodel = new RegExp( /\{\{(\w+)\}\}/ );
+
+function isSubModel( member ) {
+	return re_submodel.test( member );
+}
+
+function getMemberName( member ) {
+	// return either the regex derived goodness or the passed in value
+	if ( isSubModel( member ) ) {
+		return re_submodel.exec( member )[ 1 ]
+	} else {
+		return member;
+	}
+}
 
 function initialize( modelName ) {
 	// Grab the file
@@ -15,10 +30,17 @@ function initialize( modelName ) {
 
 			// populate with data from the initialization
 			modelData.members.forEach( function ( member ) {
-				// throw if all the data isn't there
-				if ( !initialData[ member ] ) throw new Error( 'Missing initial ' + member + ' data' );
+				var memberName = getMemberName( member );
 
-				model[ member ] = initialData[ member ];
+				// throw if all the data isn't there
+				if ( !initialData[ memberName ] ) throw new Error( 'Missing initial ' + memberName + ' data' );
+
+				// if it's a submodel, format it differently
+				if ( isSubModel( member ) ) {
+					model[ memberName ] = '{{' + memberName + ':' + initialData[ memberName ] + '}}';
+				} else {
+					model[ memberName ] = initialData[ memberName ];
+				}
 			} );
 
 			cache[ model.id ] = model;

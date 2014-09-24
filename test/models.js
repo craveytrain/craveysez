@@ -1,5 +1,6 @@
 var assert = require( 'assert' );
 var models = require( '../models' );
+var merge = require( 'merge' );
 
 function toTitleCase( str ) {
 	return str.replace( /\w\S*/g, function ( txt ) {
@@ -23,6 +24,12 @@ var stubModels = {
 	}
 };
 
+var expectedModels = {
+	review: {
+		eatery: '{{eatery:e23423}}',
+	}
+};
+
 Object.keys( models ).forEach( function ( modelName ) {
 	describe( toTitleCase( modelName ), function () {
 		describe( 'create()', function () {
@@ -38,8 +45,14 @@ Object.keys( models ).forEach( function ( modelName ) {
 			} );
 
 			it( 'should create and get the same coupon', function () {
+				// create the model
 				models[ modelName ].create( stubModels[ modelName ] );
-				assert.deepEqual( models[ modelName ].get( stubModels[ modelName ].id ), stubModels[ modelName ] );
+
+				// merge the original data and the transformed data
+				var expectedModel = merge( stubModels[ modelName ], expectedModels[ modelName ] );
+
+				// check for equality
+				assert.deepEqual( models[ modelName ].get( stubModels[ modelName ].id ), expectedModel );
 			} );
 		} );
 

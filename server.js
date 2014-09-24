@@ -12,7 +12,6 @@ db.on( 'ready', function () {
 	db.get( 'foo_rand000000000000', redis.print );
 } );
 
-
 // Grab all the models recursively
 // var models = require( './models' );
 
