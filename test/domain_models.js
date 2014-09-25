@@ -1,5 +1,5 @@
 var assert = require( 'assert' );
-var models = require( '../models' );
+var models = require( '../models/domains' );
 var merge = require( 'merge' );
 
 function toTitleCase( str ) {
