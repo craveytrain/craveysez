@@ -8,7 +8,7 @@ var stubModels = require( '../data/domains' );
 // Hard code values we know will be transformed by the domain models
 var expectedModels = {
 	review: {
-		eatery: '{{eatery:e23423}}',
+		eatery: '{{eatery:23423}}',
 	}
 };
 

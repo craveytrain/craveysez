@@ -37,7 +37,7 @@ function initialize( modelName ) {
 
 				// if it's a submodel, format it differently
 				if ( isSubModel( member ) ) {
-					model[ memberName ] = '{{' + memberName + ':' + initialData[ memberName ] + '}}';
+					model[ memberName ] = '{{' + initialData[ memberName ] + '}}';
 				} else {
 					model[ memberName ] = initialData[ memberName ];
 				}
