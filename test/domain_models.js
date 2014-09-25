@@ -1,14 +1,9 @@
 var assert = require( 'assert' );
 var models = require( '../models/domains' );
 var merge = require( 'merge' );
-var stubModels = require( '../data/domains' );
+var toTitleCase = require( '../lib/toTitleCase' );
 
-// To make pretty titles
-function toTitleCase( str ) {
-	return str.replace( /\w\S*/g, function ( txt ) {
-		return txt.charAt( 0 ).toUpperCase() + txt.substr( 1 ).toLowerCase();
-	} );
-}
+var stubModels = require( '../data/domains' );
 
 // Hard code values we know will be transformed by the domain models
 var expectedModels = {
@@ -23,7 +18,7 @@ Object.keys( models ).forEach( function ( modelName ) {
 	describe( toTitleCase( modelName ), function () {
 		describe( 'create()', function () {
 			it( 'should fail if data is missing in creation', function () {
-				// Catch the throw that comes from missing data
+				// Catch the throw
 				assert.throws(
 					function () {
 						models[ modelName ].create( {
@@ -36,8 +31,8 @@ Object.keys( models ).forEach( function ( modelName ) {
 		} );
 
 		describe( 'get()', function () {
-			it( 'should fail if coupon has not been created', function () {
-				// catch the throw from missing coupon
+			it( 'should fail if not created', function () {
+				// catch the throw
 				assert.throws(
 					function () {
 						models[ modelName ].get( 'test' );
@@ -46,7 +41,7 @@ Object.keys( models ).forEach( function ( modelName ) {
 				);
 			} );
 
-			it( 'should create and get the same coupon', function () {
+			it( 'should create and get the same', function () {
 				// create the model
 				models[ modelName ].create( stubModels[ modelName ] );
 
