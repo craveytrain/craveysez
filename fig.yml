@@ -1,0 +1,14 @@
+web:
+    image: node:0.11.13
+    expose:
+    - "80"
+    ports:
+    - "8080:80"
+    volumes:
+    - ".:/usr/src/app"
+    # links:
+    # - "redis:db"
+    working_dir: "/usr/src/app"
+    command: "npm start"
+# redis:
+#     image: redis:2.8.13
